@@ -1,0 +1,97 @@
+p{
+	line-height: 50px;
+}
+
+*{
+	background-color: #EEEEEE;
+}
+
+a[title="Google"],
+a[title="Facebook"]{
+	text-decoration: none;
+	color: green;
+}
+
+#id_selector{
+	text-align: justify;
+	word-spacing: 20px;
+}
+
+.class_selector_One{
+	color: darkred;
+	text-transform: uppercase;
+}
+
+.class_selector_Two{
+	column-count: 2;
+}
+/*Descendant Selector*/
+p a{
+	color: purple;
+	text-decoration-line: overline;
+	text-decoration-style: double;
+	text-transform: lowercase;
+}
+/*Child Selector*/
+p>a{
+	text-decoration-style: wavy;
+	color: darkred;
+	text-transform: uppercase;
+}
+
+
+a.gitHub:link{
+	text-decoration: none;
+}
+a.gitHub:hover{
+	text-decoration: none;
+	background-color: black;
+	color: white;
+}
+a.gitHub:active{
+	background-color: silver;
+	color: black;
+}
+a.gitHub:visited{
+	color: gray;
+}
+
+:target{
+	background: skyblue;
+	border: 2px solid black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
