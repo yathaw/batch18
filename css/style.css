@@ -184,13 +184,64 @@ p{
 	font-family: bb;
 }
 
+div img{
+	width: 500px;
+	height: 300px;
+}
 
 
+div.float_left img{
+	float: left;
+}
+
+.clear{
+	clear: both;
+}
 
 
+div.float_right img{
+	float:right;
+}
 
 
+.flexOne, .flexTwo, .flexThree, .flexFour{
+	display: flex;
+}
 
+.flexOne div, .flexTwo div, .flexThree div, .flexFour div{
+	color: #fff;
+	font-size: 30px;
+	padding: 20px;
+	text-align: center;
+	width: 50px;
+	height: 50px;
+	margin: 0 10px;
+}
+
+
+.flexOne div{
+	flex: 1;
+	/*flex: flex-grow flex-shrink flex-basis;
+	flex: 1 = flex: 1 1 0;*/
+}
+
+
+.flexTwo div:nth-child(3){
+	/*flex-basis => length of a flexible item*/
+	flex-basis: 100px;
+}
+
+
+.flexThree div:nth-child(2){
+	/*flex-grow => item will grow to the rest of flexible items*/
+	flex-grow: 3;
+}
+
+
+.flexFour{
+	/*flex-direction => row | row-reverse | column | column-reverse*/
+	flex-direction: column-reverse;
+}
 
 
 
