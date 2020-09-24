@@ -312,11 +312,14 @@ div.float_right img{
 	top: 20px;
 	left: 100px;
 
-	width: 50px;
+	width: 150px;
 	height: 50px;
 	padding: 10px;
 	background-color: pink;
-	border-radius: 50%;
+	border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 0px;
 }
 
 div.fixed h3{
