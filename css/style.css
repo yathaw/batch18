@@ -243,6 +243,104 @@ div.float_right img{
 	flex-direction: column-reverse;
 }
 
+.gridOne, .gridTwo, .gridThree, .gridFour, .gridFive, .gridSix{
+	display: grid;
+	grid-template-columns: auto auto auto;
+}
+
+.gridOne div, .gridTwo div, .gridThree div, .gridFour div, .gridFive div, .gridSix div{
+	border: 1px solid #bbb;
+	padding: 20px;
+	font-size: 30px;
+	text-align: center;
+	color: #fff;
+}
+
+.gridTwo{
+	grid-column-gap: 50px;
+}
+
+.gridThree{
+	grid-row-gap: 50px;
+}
+
+.gridFour{
+	grid-gap: 30px;
+}
+
+.gridFive div.column_one{
+	grid-column-start: 1;
+	grid-column-end: 3;
+}
+
+.gridSix div.row_one{
+	grid-row-start: 1;
+	grid-row-end: 3;
+}
+
+#first_element{
+	position: relative;
+	top: 10px;
+	left: 50px;
+
+	width: 500px;
+	border: 2px solid orange;
+	font-size: 24px;
+	text-align: center;
+}
+
+#second_element, #fourth_element{
+	width: 500px;
+	border: 2px solid red;
+	font-size: 24px;
+	text-align: center;
+}
+
+#count{
+	width: 50px;
+	height: 50px;
+	padding: 10px;
+	background-color: pink;
+	border-radius: 50%;
+
+	position: relative;
+	left: 300px;
+}
+
+#count4{
+	position: absolute;
+	top: 20px;
+	left: 100px;
+
+	width: 50px;
+	height: 50px;
+	padding: 10px;
+	background-color: pink;
+	border-radius: 50%;
+}
+
+div.fixed h3{
+	width: 300px;
+	background-color: skyblue;
+
+	position: fixed;
+	top: 10px;
+	left: 50%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
