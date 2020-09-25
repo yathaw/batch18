@@ -1,6 +1,11 @@
 *{
 	margin: 0;
 	padding: 0;
+	font-family: Raleway;
+}
+
+h1,h2,h3,h4,h5,h6{
+	font-family: Kurale;
 }
 
 div#header img{
@@ -17,6 +22,7 @@ div#header h1{
 	font-family: Cookie;
 	font-size: 50px;
 	padding-top: 30px;
+	font-weight: 100;
 }
 
 div#header{
@@ -25,7 +31,7 @@ div#header{
 
 div#navbar{
 	width: 100%;
-	background-color: #4E342E;
+	background-color: #1b1b1b;
 }
 
 div#navbar ul li{
@@ -49,7 +55,7 @@ div#navbar ul li a{
 
 .active,
 div#navbar ul li a:hover{
-	background-color: #5D4037;
+	background-color: #363636;
 }
 
 div#slider img{
@@ -68,24 +74,84 @@ div.quote{
 	padding: 30px;
 }
 
+div#offer, div#ourshop                   
+{
+	margin: 130px 0;
+}
 
+div#offer h1, div#ourshop h1
+{
+	font-size: 40px;
+	text-align: center;
+}
 
+div#offer p
+{
+	font-size: 15px;
+	width: 50%;
+	margin: 0 auto;
+	text-align: center;
+}
 
+div#offer hr, div#ourshop hr
+{
+	height: 1px;
+    border: none;
+    color: #000;
+    background-color: #000;
+    width: 50%;
+    text-align: center;
+    margin: 50px auto;
+}
 
+div.offer_icon_section{
+	display: grid;
+	grid-template-columns: auto auto auto;
+	width: 1170px;
+	margin: 20px auto;
+	padding: 60px 0 10px 0;
+	text-align: center;
+}
 
+.offer_icon_list i
+{
+    text-align: center;
+    padding: 0 110px;
+    color: #292929;
+}
 
+div.offer_icon_list h2
+{
+	margin: 30px 0;
+	text-align: center;
+}
 
+div.offer_icon_list p
+{
+	text-align: center;
+	line-height: 25px;
+}
 
+div.ourshop_section{
+	width: 1170px;
+	margin: 0 auto;
+	padding: 60px 0 10px 0;
+}
 
+div.ourshop_section_left img{
+	width: 150px;
+	height: 250px;
+}
 
+div.ourshop_section_left{
+	float: left;
+	width: 500px;
+}
 
-
-
-
-
-
-
-
+div.ourshop_section_right p{
+	margin-top: 10px;
+	line-height: 30px;
+}
 
 
 
