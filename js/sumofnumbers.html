@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sum of Numbers</title>
+  <script type="text/javascript">
+    function sum() {
+      // alert('ok');
+      let n1 = parseInt(document.myForm.num1.value);
+      // alert(typeof num1);
+      let n2 = parseInt(document.myForm.num2.value);
+      let sum = n1+n2;
+
+      document.myForm.result.value = sum;
+    }
+  </script>
+</head>
+<body>
+  <form name="myForm">
+    <label for="Num1">Num1:</label>
+    <input type="number" name="num1" id="Num1">
+    <br>
+
+    <label for="Num2">Num2:</label>
+    <input type="number" name="num2" id="Num2">
+    <br>
+
+    <label for="Result">Result:</label>
+    <input type="number" name="result" id="Result" readonly>
+    <br>
+    <button onclick="sum()" type="button">Calculate</button>
+  </form>
+</body>
+</html>
