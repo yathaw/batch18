@@ -37,3 +37,13 @@ Timing Events
   - setTimeout(function, milliseconds) - once
   - setInterval(function, milliseconds) - repeat
 
+ES6 Features
+  - String Literal
+  - Tanary Operator
+  - Array methods
+
+
+
+
+
+

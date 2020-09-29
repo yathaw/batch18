@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Modern JS</title>
+  <script type="text/javascript">
+    let sum = 1+1; // 12
+    console.log(`Sum: ${sum} ldksjfksdhf nsjkfhdskjfhs`);
+
+    sum>2?console.log('greater than 2'):console.log('less than 2')
+
+    let arr = ['mgmg','aungaung','susu'];
+    arr.sort();
+    console.log(arr);
+
+    let num1 = 5; // 5 
+    num1 += 4; // 9
+
+    let firstname = "thet ";
+    let lastname = "htut";
+
+    firstname +=lastname;
+
+  </script>
+</head>
+<body>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody id="tbody">
+      
+    </tbody>
+  </table>
+
+  <script type="text/javascript">
+    let students = [
+      {name:'sansan',email:'san@gmail.com',status: false},
+      {name:'myo',email:'myo@gmail.com',status: true},
+      {name:'thet',email:'thet@gmail.com',status: true},
+    ];
+
+    let passStudents = students.filter(row=> row.status==true)
+
+    let html='';
+    for(let row of passStudents){
+      html+=`<tr>
+              <td>${row.name}</td>
+              <td>${row.email}</td>
+            </tr>`;
+    }
+
+    console.log(html);
+
+    let tbody = document.getElementById('tbody');
+    tbody.innerHTML = html;
+
+    console.log(students);
+  </script>
+</body>
+</html>
