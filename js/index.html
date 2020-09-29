@@ -3,44 +3,65 @@
 <head>
   <title>Javascript</title>
   <script type="text/javascript">
-    // javascript.com
-    
     // Variables
-    var val1 = "value";
+    var val1 = "value"; // string
     val1 = "value1";
     console.log(val1);
 
     const name ="MG MG"; // cannot reassign
     console.log(name.length);
 
-    let age = 5;
-    console.log(typeof age);
+    let age = 5; // number
+    console.log(typeof age); // get datatype
 
-    let exam = true;
+    let exam = true; // boolean
     console.log(typeof exam);
 
-    let message = "Hello "+"Thet Paing Htut";
+    let message = "Hello "+"Thet Paing Htut"; // concat strings
     console.log(message);
 
-    document.write('<h2>'+message+'</h2>'); // body (old) (DOM)
+    document.write('<h2>'+message+'</h2>'); // show information in body
 
-    let sum = 10+8;
+    let sum = 10+8; // sum two number (integer + integer)
     console.log(sum);
 
-    function Area(a,b) {
-      return a*b;
+    function Area(a,b) {  // function, code block, DRY (don't repeat yourself)
+      return a*b; // use return keyword to use the value in outside of function
     }
-
-    let myarea  = Area(2,5);
+ 
+    let myarea  = Area(2,5); // function call with parameters
     console.log(myarea);
 
+    // control statement (condition)
     if (age > 18) {
       console.log('men');
     }else{
       console.log('child');
     }
 
-    let students = ['mgmg','aungaung','susu'];
+    // control statement with operators
+    let a = 0;
+    let b = true;
+    console.log(!a);
+
+    if (typeof(a)=="undefined" || typeof(b)=="undefined") {
+      document.write("Variable a or b is undefined.");
+    }
+    else if (!a && b) {
+      document.write("a==0; b==true;result");
+    } else {
+      document.write("a==" + a + "; b==" + b + ";");
+    }
+
+    // prority of arithmetic opreator
+    let num = 1 * 2 + 5 / 2 % 2;
+    // 2 + 5 / 2 % 2
+    // 2 + 2.5 % 2
+    // 2 + 0.5
+    // 2.5
+    console.log(num);
+
+    let students = ['mgmg','aungaung','susu']; // array, store more datas
     // console.log(students); // get array
     // console.log(students[0]); // mgmg
     // console.log(students.length);
@@ -52,9 +73,31 @@
     // console.log(students);
 
     // looping 
-    for(var i=0; i<students.length; i++){
+    for(let i=0; i<students.length; i++){
       console.log(students[i]);
     }
+
+    // for ...of loop
+    for(value of students){
+      console.log(value);
+    }
+
+    // while loops
+    const list = ['a', 'b', 'c']
+    let i = 0
+    while (i < list.length) {
+      console.log(list[i]) //value
+      console.log(i) //index
+      i = i + 1
+    }
+
+    // do while loops (always executed at least once)
+    i = 0
+    do {
+      console.log(list[i]) //value
+      console.log(i) //index
+      i = i + 1
+    } while (i < list.length)
 
     // Object
     var course = {

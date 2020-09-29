@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Var, Let, Const</title>
+  <script type="text/javascript">
+    var name = "mgmg"; // global scope (use for less changes)
+    var name = "Tarry"; // redeclare
+    console.log(window.name); // can access from window object
+
+    let age = 5; // local scope (use for continous changes - e.g looping)
+    age = age+1; // may be reassigned
+    // let age = age+1; // cannot redeclare
+    console.log(window.age); // undefined - cannot access from window object
+
+    const gender = 'male'; // local scope (no changes)
+    // gender = 'female'; // cannot reassigned
+    console.log(window.gender); // undefined - cannot access from window object
+
+    // sometimes, may changes using const
+    const arr = ['val1','val2']; // using array, object
+    // arr.push('val3');
+    arr.pop();
+    console.log(arr);
+  </script>
+</head>
+<body>
+
+</body>
+</html>

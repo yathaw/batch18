@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DOM Intro</title>
+  <script type="text/javascript">
+    function testing() {
+      // let myh1 = document.getElementById('myh1');
+      let myh1 = document.querySelectorAll('.myh1');
+      // let myh1 = document.getElementsByTagName('p');
+      myh1[1].innerHTML = 'DOM Element Changes <i>Strong</i>';
+      // console.log(myh1);
+      let myimg = document.getElementsByTagName('img');
+      myimg[0].src = "../photos/laravel.png";
+      myimg[0].style.width = "50px";
+
+      // alert(window.location.href); // current url
+      // window.location.assign('https://google.com');
+    }
+  </script>
+  
+  <style type="text/css">
+    .myh1{
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <h1 class="myh1">Hello H1 DOM</h1>
+  <h5 class="myh1">Hello H5 DOM</h5>
+
+  <p id="myh1">Hello P tag <span>Span tag</span></p>
+
+  <p>This is p tag</p>
+
+  <img src="../photos/bootstrap.png" alt="Images">
+
+  <input type="text" name="name" id="name">
+
+  <button onclick="testing()">click</button>
+
+  <script type="text/javascript" src="custom.js"></script>
+</body>
+</html>

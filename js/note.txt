@@ -1,0 +1,39 @@
+Javascript Basic
+----------------
+  - variables
+  - datatypes
+  - control statements
+    - condition
+    - looping
+  - functions
+  - popup boxes
+
+DOM (document object model)
+  - Accessing Document
+    - getElementById
+    - getElementsByTagName
+    - getElementsByClassName
+    - querySelectorAll(CSS Selectors)
+
+  - Changing the Value of an Attribute
+    - .src = "eg.png"
+
+  - Changing HTML Style
+    - .style.color = "blue"
+
+  - JavaScript HTML DOM EventListener
+    - element.addEventListener("click", function() {
+        alert("Hello World!");
+      });
+
+BOM (Browser Object Model)
+  - Window Location Href
+    - window.location.href
+    - window.location.assign
+    - window.history.back()
+    - window.history.forward()
+
+Timing Events
+  - setTimeout(function, milliseconds) - once
+  - setInterval(function, milliseconds) - repeat
+

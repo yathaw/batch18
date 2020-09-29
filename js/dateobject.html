@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Date Object</title>
+  <script type="text/javascript">
+    function clock() {
+      let date = new Date();
+      let hour = date.getHours();
+      let min = date.getMinutes();
+      let sec = date.getSeconds();
+
+      let myp = document.getElementById('myp');
+      myp.innerHTML = hour+':'+min+':'+sec;
+      setInterval(clock,1000);
+    }
+  </script>
+</head>
+<body onload="clock()">
+  <p id="myp"></p>
+</body>
+</html>

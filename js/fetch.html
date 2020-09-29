@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fetch API</title>
+  <script type="text/javascript">
+    const arr = [];
+    if (window.fetch) {
+      // console.log('support')
+      fetch('https://api.imgflip.com/caption_image')
+        .then(res=>{
+          return res.json()
+        })
+        .then(jsonData =>{
+          // console.table(jsonData.data)
+          arr.push(jsonData.data);
+        })
+    }else{
+      console.error('not support')
+    }
+
+    console.log(arr);
+  </script>
+</head>
+<body>
+
+</body>
+</html>
