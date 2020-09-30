@@ -1,0 +1,35 @@
+<!-- JSON
+----
+  - lightweight data-interchange format
+  - only text
+  - key:value
+  - Parse json data in javascript (JSON.parse())
+  - Encoding Data as JSON in JavaScript (JSON.stringify()) -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JSON</title>
+  <script type="text/javascript">
+    let json1 = '{"name": "Peter", "age": 22, "country": "United States"}';
+
+    console.log(typeof json);
+
+    // Converting JSON-encoded string to JS object // Parse
+    let obj = JSON.parse(json);
+    console.log(typeof obj);
+
+    // Encoding
+    let jsobj1 = {name: 'susu', 'age': 23};
+    let jsobj2 = {name: 'susu', 'age': 23};
+
+    let jsobj = [jsobj1,jsobj2];
+    
+    let jsonStr = JSON.stringify(obj);
+    console.log(typeof jsonStr);
+  </script>
+</head>
+<body>
+
+</body>
+</html>
