@@ -109,7 +109,7 @@
 
 
 
-			$("#btnupdate").click(function(){
+			$("tbody").on("click","#btn_edit",function(){
 				//alert("ok");
 				var id=$("#uid").val();
 				var name=$("#uname").val();
@@ -138,6 +138,21 @@
 			})
 
 
+			$("tbody").on("click","#btn_delete",function(){
+				var id=$(this).data('id');
+				//console.log(id);
+				var studentlist=localStorage.getItem("student");
+				var studentArray=JSON.parse(studentlist);
+				//console.log(studentArray);
+
+				studentArray.splice(id, 1);
+
+				var stringStudent=JSON.stringify(studentArray);
+				localStorage.setItem('student', stringStudent);
+				showdata();
+
+			})
+
 		})
 	</script>
 </head>
@@ -162,7 +177,7 @@
 		Address:<input type="text" id="uaddress"><br>
 		Gender:<br>
 		Male:<input type="radio" name="gender" id="umale" value="male">
-		FeMale:<input type="radio" name="gender" id="ufemale" value="female" >
+		FeMale:<input type="radio" name="gender" id="ufemale" value="female" ><br>
 		<button id="btnupdate"> update</button>
 	</div>
 	<div id="mytable">
@@ -176,7 +191,7 @@
 				<th>gender</th>
 				<th>Action</th>
 			</thead>
-			<tbody >
+			<tbody>
 				
 			</tbody>
 		</table>
