@@ -70,7 +70,7 @@
 			}
 
 
-			$("tbody").on('click','#btn_edit',function(){
+			$("#btn_edit").click(function(){
 				$("#edit_form").show();
 				$("#reg_form").hide();
 
@@ -137,18 +137,6 @@
 
 			})
 
-			$("tbody").on('click','#btn_delete',function(){
-				//alert("ok");
-				var id=$(this).data('id');
-				var studentlist=localStorage.getItem('student');
-				var studentArray=JSON.parse(studentlist);
-
-				studentArray.splice(id, 1);
-
-				var studentstring=JSON.stringify(studentArray);
-				localStorage.setItem('student', studentstring);
-				showdata();
-			})
 
 		})
 	</script>
