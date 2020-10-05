@@ -138,7 +138,7 @@
 				<td>${j++}</td>
 				<td>${v.name}</td>
 				<td><img src="${v.photo}" width="50px" height ="50px"></td>
-				<td>${v.qty}</td>
+				<td><button class="btnincrease" data-id=${i}>+</button>${v.qty}<button class="btndecrease" data-id="${i}">-</button></td>
 				<td>${v.price}</td>
 				<td>${subtotal} <button data-id="${i}" class="remove">Remove</button></td>
 				</tr>`
@@ -175,6 +175,48 @@
 			}
 			$("#cart").html(totalcount);
 		}
+
+
+		$("tbody").on("click",".btnincrease",function(){
+			//alert("ok");
+			var id=$(this).data('id');
+			var itemlist=localStorage.getItem("items");
+			var itemArray=JSON.parse(itemlist);
+			//console.log(ItemArray);
+
+			$.each(ItemArray,function(i,v){
+				if(i==id){
+					v.qty++;
+				}
+			})
+
+			var itemstring=JSON.stringify(ItemArray);
+			localStorage.setItem("items", itemstring);
+			showdata();
+			count();
+		})
+
+		$("tbody").on("click",".btndecrease",function(){
+			//alert("ok");
+			var id=$(this).data('id');
+			var itemlist=localStorage.getItem("items");
+			var itemArray=JSON.parse(itemlist);
+			//console.log(ItemArray);
+
+			$.each(ItemArray,function(i,v){
+				if(i==id){
+					v.qty--;
+					if(v.qty==0){
+						ItemArray.splice(id,1);
+					}
+				}
+			})
+
+			var itemstring=JSON.stringify(ItemArray);
+			localStorage.setItem("items", itemstring);
+			showdata();
+			count();
+		})
 
 	})
 	
