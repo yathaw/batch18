@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Shop</title>
+	<style type="text/css">
+		.myshop{
+			float: left;
+			margin-left: 40px;
+		}
+		.shop{
+			float: left;
+		}
+		.clear{
+			clear: both;
+		}
+		.mycart{
+			float: left;
+			margin-left: 100px;
+		}
+		#cart{
+			position: absolute;
+		}
+		#imgg{
+			position: relative;
+			margin-left: 50px;
+		}
+		
+	</style>
+	<script type="text/javascript" src="jquery.min.js"></script>
+</head>
+<body>
+<div class="shop">
+	<h1 align="center">My Shop</h1>
+	<div class="myshop">
+		<img src="download.jpg" width="100px" height="100px"><br>
+		<p>Humbagar</p>
+		<p>price:5000kyats</p><br>
+		<button class="addtocart" data-photo="download.jpg" data-name="Humbagar" data-price="5000" data-id="1">Add to cart</button>
+	</div>
+
+	<div class="myshop">
+		<img src="2.jpg" width="100px" height="100px"><br>
+		<p>Fried Chicken</p>
+		<p>price:2500kyats</p><br>
+		<button class="addtocart" data-photo="2.jpg" data-name="Fried Chicken" data-price="2500" data-id="2">Add to cart</button>
+	</div>
+
+	<div class="myshop">
+		<img src="3.jpg" width="100px" height="100px"><br>
+		<p>Fried Rice</p>
+		<p>price:3000kyats</p><br>
+		<button class="addtocart" data-photo="3.jpg" data-name="fried Rice" data-price="3000" data-id="3">Add to cart</button>
+	</div>
+
+	<div class="clear"></div>
+</div>
+
+<div class="mycart">
+	<h1 align="center" style="display: inline;">My cart</h1>
+	<img src="cart1.png" width="50px" height="50px" id="imgg" ><span id="cart">0</span>
+
+	<table border="1" cellpadding="20px" style="margin-top: 30px">
+		<thead>
+			<th>No</th>
+			<th>Name</th>
+			<th>photo</th>
+			<th>qty</th>
+			<th>price</th>
+			<th>Subtotal</th>
+		</thead>
+		<tbody>
+			
+		</tbody>
+	</table>
+	<button class="checkout">Check out</button>
+	
+</div>
+
+<script type="text/javascript">
+
+	$(document).ready(function(){
+
+		showdata();
+		count();
+
+		$(".addtocart").click(function(){
+			var id=$(this).data('id');
+			var name=$(this).data("name");
+			var photo=$(this).data("photo");
+			var price=$(this).data("price");
+
+			var item={
+				id:id,
+				name:name,
+				photo:photo,
+				price:price,
+				qty:1,
+			}
+
+			var itemlist=localStorage.getItem("items");
+
+			var ItemArray;
+			if(itemlist==null){
+				ItemArray=[];
+			}else{
+				ItemArray=JSON.parse(itemlist);
+			}
+			var status=false;
+			$.each(ItemArray,function(i,v){
+				if(v.id==id){
+					//alert("ok");
+					v.qty++;
+					status=true;
+				}
+			})
+
+			if(!status){
+				ItemArray.push(item);	
+			}
+			var itemstring=JSON.stringify(ItemArray);
+			localStorage.setItem("items", itemstring);
+			showdata();
+			count();
+		})
+
+
+		function showdata(){
+			var itemlist=localStorage.getItem("items");
+			var itemArray=JSON.parse(itemlist);
+			console.log(itemArray);
+			var j=1;
+			var html="";
+			var total=0;
+			$.each(itemArray,function(i,v){
+				var subtotal=v.qty*v.price;
+				total+=subtotal;
+				html+=`<tr>
+				<td>${j++}</td>
+				<td>${v.name}</td>
+				<td><img src="${v.photo}" width="50px" height ="50px"></td>
+				<td>${v.qty}</td>
+				<td>${v.price}</td>
+				<td>${subtotal} <button data-id="${i}" class="remove">Remove</button></td>
+				</tr>`
+
+			})
+			html+=`<tr><td colspan="5">Total</td><td>${total}</td></tr>`
+			
+			$("tbody").html(html);
+
+		}
+
+		$("tbody").on("click",".remove",function(){
+			//alert("ok");
+			var id=$(this).data("id");
+			//console.log(id);
+			var itemlist=localStorage.getItem("items");
+			var ItemArray=JSON.parse(itemlist);
+			ItemArray.splice(id,1);
+			var itemstring=JSON.stringify(ItemArray);
+			localStorage.setItem("items", itemstring);
+			showdata();
+			count();
+		})
+
+
+		function count(){
+			var totalcount=0;
+			var itemlist=localStorage.getItem("items");
+			if(itemlist){
+				ItemArray=JSON.parse(itemlist);
+				$.each(ItemArray,function(i,v){
+					totalcount+=v.qty;
+				})
+			}
+			$("#cart").html(totalcount);
+		}
+
+	})
+	
+</script>
+
+</body>
+</html>

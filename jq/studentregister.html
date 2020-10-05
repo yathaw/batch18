@@ -58,8 +58,8 @@
 						<td>${v.address}</td>
 						<td>${v.gender}</td>
 						<td>
-						<button id="btn_edit" data-id="${i}">edit</button>
-						<button id="btn_delete" data-id="${i}">Delete</button>
+						<button class="btn_edit" data-id="${i}">edit</button>
+						<button class="btn_delete" data-id="${i}">Delete</button>
 						</td>
 						</tr>`
 
@@ -109,7 +109,7 @@
 
 
 
-			$("tbody").on("click","#btn_edit",function(){
+			$("tbody").on("click",".btn_edit",function(){
 				//alert("ok");
 				var id=$("#uid").val();
 				var name=$("#uname").val();
@@ -138,7 +138,7 @@
 			})
 
 
-			$("tbody").on("click","#btn_delete",function(){
+			$("tbody").on("click",".btn_delete",function(){
 				var id=$(this).data('id');
 				//console.log(id);
 				var studentlist=localStorage.getItem("student");
