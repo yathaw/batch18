@@ -1,0 +1,25 @@
+@font-face{
+	font-family: lobster;
+	src:url(../../Lobster/Lobster-Regular.ttf);
+}
+
+
+
+
+.logo_image{
+	width: 100px;
+	height: 90px;
+}
+.logo_style{
+	font-family: lobster;
+	margin-left:-35px;
+}
+
+.carousel_text{
+	position: absolute;
+	top: 180px;
+	left: 10%;
+}
+.font_style{
+	font-family: lobster;
+}
