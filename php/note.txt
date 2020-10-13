@@ -127,6 +127,61 @@ Foreach
 
 =======================================================================
 
+Array
+------
+-	Indexed / Numeric Array
+-	Associative Array
+-	Multidimensional Array
+
+=======================================================================
+
+array_key_exists
+-----------------
+	array_key_exists(key, array);
+
+	return true false
+
+=======================================================================
+
+
+in_array
+--------
+	in_array(key, array);
+
+======================================================================
+
+unset
+------
+	unset(array no);
+
+======================================================================
+
+implode
+-------
+	implode(separator, array)
+
+	array to string
+
+
+======================================================================
+
+explode
+--------
+	explode(separator, array)
+
+	string to array
+
+======================================================================
+
+Sorting
+-	sort 	=>	arrays in ascending order
+-	rsort	=>	arrays in descending order
+
+-	asort 	=>	associative arrays in ascending order (value)
+-	ksort 	=>	associative arrays in ascending order (key)
+
+-	arsort 	=> associative arrays in descending order (value)
+-	krsort 	=> associative arrays in deascending order (key)
 
 
 

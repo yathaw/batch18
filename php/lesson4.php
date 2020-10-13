@@ -25,4 +25,39 @@
 		echo "Batch - $b <br>";
 		$b++;
 	}while ( $b <= 10);
+
+	echo "<br> <hr>";
+
+	echo "<h1> Foreach Loop </h1>";
+
+	$fruits = array("apple", "orange", "grape", "pineapple");
+
+
+	foreach ($fruits as $fruit) {
+		echo $fruit."<br>";
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ?>
