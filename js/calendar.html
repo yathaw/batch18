@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calendar</title>
+
+  <script type="text/javascript">
+    function create_calendar() {
+      let date = new Date();
+      let months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+      let days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+
+      let year = date.getFullYear();
+      let month = months[date.getMonth()];
+
+      let ui = document.getElementById('calendar');
+      let html="";
+      html += `<h2>${month}</h2>
+                      <h4>${year}</h4>
+                      `;
+      ui.innerHTML = html;
+    }
+
+    setTimeout(create_calendar(),1000);
+  </script>
+  <style type="text/css">
+    h2,h4{
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <div id="calendar">
+    
+  </div>
+</body>
+</html>
