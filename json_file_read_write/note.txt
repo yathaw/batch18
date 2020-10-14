@@ -1,0 +1,14 @@
+File Structure
+--------------
+	- css (bootstrap folder)
+	- js (bootstrap folder)
+	- photo (create new folder)
+
+	- index.php
+	- header.php
+	- footer.php
+	- addstudent.php
+	- updatestudent.php
+	- studentlist.json
+
+----------------------------------------------------
