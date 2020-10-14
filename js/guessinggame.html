@@ -1,4 +1,4 @@
-<!-- - random (1-20) => 5
+<!-- - random (1-10) => 5
 - collect num from prompt box => 1 , 10, 4, 5 
 - show alert info (too small, too large)
 - calculate guess count (alert) -->
@@ -6,24 +6,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Guess Game</title>
+  <title>Guessing Game</title>
   <script type="text/javascript">
-    var secretNo = 20; // random
-    var guess = prompt('Guess a Number between 1 to 20!');
+    var secretNo = 5; // random *
+    var guess = prompt('Guess a Number between 1 to 10!'); // range *
     // console.log(guess);
     guess = Number(guess);
+
     while(guess != secretNo){
       if (guess>secretNo) {
-        alert('Higher');
+        alert('Higher, Try!');
       } else {
-        alert('Lower');
+        alert('Lower, Try!');
       }
-      var guess = prompt('Guess a Number between 1 to 20!');
+      var guess = prompt('Guess a Number between 1 to 10!');
       // console.log(guess);
       guess = Number(guess);
     }
 
-    alert('Correct');
+    alert('Correct'); // show count *
   </script>
 </head>
 <body>

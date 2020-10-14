@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Discuss</title>
+
+  <script type="text/javascript">
+    let name = "Mg Mg"; // string
+    console.log(name.length); // 5
+
+    let students = ['Su', 'Zaw', 'Lwin'];
+    students.push('Soe'); // 4
+    students.pop(); // Soe
+    students.splice(1,1); // delete Zaw
+    // students.sort();
+    let str = students.toString(); // convert array into string
+    let arr = str.split(","); // convert string to array (su,zaw,lw)
+
+    // Date Obj
+    let d = new Date();
+    let months = ['Jan','Feb','Mar','Apir','May','Jun','Jul','Aug','Sept','Oct','Nov','Dec'];
+
+    console.log('Current Month: '+months[d.getMonth()]);
+    // console.log('Current Day: '+days[d.getDay()]);
+    
+
+  </script>
+</head>
+<body>
+  <h1> H1 Tag </h1>
+  <script type="text/javascript">
+    let myh1 = document.getElementsByTagName('h1');
+    console.log(myh1); // HTMLCollection
+  </script>
+</body>
+</html>
