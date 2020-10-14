@@ -1,0 +1,217 @@
+Create Folder in htdocs
+------------------------
+xampp >> htdocs >> php
+
+======================================================================
+Create File in php
+------------------
+xampp >> htdocs >> php >> lesson1.php
+
+======================================================================
+Variable : Naming Rules
+-----------------------
+-	No Space
+-	No Special Characters (Shift + 1 to 10)
+-	/ \ ? . > < = ~ ` ' " { ( [ | ; : ,
+-	Can't be a number on first Character
+	$1name(wrong) $name1(correct)
+
+-	Case Sensitive
+	$function || $class 
+
+====================================================================== 
+Comparison Operators
+---------------------
+
+-	greater than						>
+-	less than							<
+-	greater than and equal 				>=
+-	less than and equal					<=
+-	not equal							!=
+-	not equal value or not equal type	!==
+-	equal to 							==
+-	equal to and same type				===
+====================================================================== 
+Logical Operators
+------------------
+
+-	or 						||
+-	and						&&
+-	not						!
+
+====================================================================== 
+Connector / String Operators / Concatenate
+-------------------------------------------
+-	concatenate and assign			.=
+
+=======================================================================
+
+
+
+
+
+
+Trim
+-----
+	trim(string)
+
+	remove space the beginning and ending of a string
+
+=======================================================================
+
+strlen
+------
+	strlen(string)
+
+	string length
+
+=======================================================================
+
+strcasecmp
+-----------
+	strcasecmp(string1, string2)
+
+	compare two strings
+	0	-	if the two strings are equal
+	<0	-	if string1 is less than string2
+	>0	-	if string1 is greater than string2
+
+=======================================================================
+
+strtolower
+-----------	
+	strtolower(string)
+	convert small letter
+
+=======================================================================
+
+strtoupper
+----------
+	strtoupper(string)
+	convert capital letter
+
+=======================================================================
+
+substr
+------
+	substr(string1, start_number)
+
+	parts of a string, beginning at the character at the specified position
+
+=======================================================================
+
+str_replace
+-----------
+	str_replace(find, replace, string)
+
+	string replace
+
+=======================================================================
+
+Statements
+-----------
+If statement ( ONE condition )
+If...else statement ( TWO conditions  )
+If...elseif...elseif...else statement ( Multiple Conditions )
+Switch stateement ( Multiple Conditions )
+
+
+=======================================================================
+
+Looping
+--------
+For
+While
+Do..while
+Foreach
+
+=======================================================================
+
+Array
+------
+-	Indexed / Numeric Array
+-	Associative Array
+-	Multidimensional Array
+
+=======================================================================
+
+array_key_exists
+-----------------
+	array_key_exists(key, array);
+
+	return true false
+
+=======================================================================
+
+
+in_array
+--------
+	in_array(key, array);
+
+======================================================================
+
+unset
+------
+	unset(array no);
+
+======================================================================
+
+implode
+-------
+	implode(separator, array)
+
+	array to string
+
+
+======================================================================
+
+explode
+--------
+	explode(separator, array)
+
+	string to array
+
+======================================================================
+
+Sorting
+-	sort 	=>	arrays in ascending order
+-	rsort	=>	arrays in descending order
+
+-	asort 	=>	associative arrays in ascending order (value)
+-	ksort 	=>	associative arrays in ascending order (key)
+
+-	arsort 	=> associative arrays in descending order (value)
+-	krsort 	=> associative arrays in deascending order (key)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,16 @@
+[
+    {
+        "name": "Testing One",
+        "email": "testingone@gmail.com",
+        "gender": "Male",
+        "address": "Yangon",
+        "profile": "photo\/41LgLUSsQNL._AC_.jpg"
+    },
+    {
+        "name": "Testing Two",
+        "email": "testingtwo@gmail.com",
+        "gender": "Female",
+        "address": "Mandalay",
+        "profile": "photo\/1200px-Vue.js_Logo_2.svg.png"
+    }
+]
