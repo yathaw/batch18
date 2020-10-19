@@ -4,10 +4,10 @@
 ?>
 	<div class="app-title">
 	    <div>
-	        <h1> <i class="icofont-list"></i> Category </h1>
+	        <h1> <i class="icofont-list"></i> Subcategory </h1>
 	    </div>
 	    <ul class="app-breadcrumb breadcrumb side">
-	        <a href="category_new.php" class="btn btn-outline-primary">
+	        <a href="subcategory_new.php" class="btn btn-outline-primary">
 	            <i class="icofont-plus"></i>
 	        </a>
 	    </ul>
@@ -23,13 +23,23 @@
 	                            <tr>
 	                              <th>#</th>
 	                              <th>Name</th>
+	                              <th> Category </th>
 	                              <th>Action</th>
 	                            </tr>
 	                        </thead>
 	                        <tbody>
 
 	                        	<?php 
-	                        		$sql = "SELECT * FROM categories";
+	                        		$sql = "SELECT *  FROM subcategories";
+
+	                        		$sql = "SELECT subcategories.*, 
+	                        				categories.id as cid,
+	                        				categories.name as cname 
+	                        				FROM subcategories
+	                        				INNER JOIN categories ON 
+	                        				subcategories.category_id = categories.id
+
+	                        				";
 	                        		$stmt = $conn->prepare($sql);
 	                        		$stmt->execute();
 
@@ -40,27 +50,24 @@
 	                        		foreach ($rows as $row) {
 	                        			$id = $row['id'];
 	                        			$name = $row['name'];
+
+	                        			$categoryid = $row['category_id'];
+	                        			$categoryname = $row['cname'];
 	                        		
 	                        	?>
 
 	                            <tr>
 	                                <td> <?php echo $i++ ?>. </td>
 	                                <td> <?= $name ?> </td>
+	                                <td> <?= $categoryname ?> </td>
 	                                <td>
-	                                    <a href="category_edit.php?cid=<?= $id ?>" class="btn btn-warning">
+	                                    <a href="" class="btn btn-warning">
 	                                        <i class="icofont-ui-settings"></i>
 	                                    </a>
 
-	                                    <form class="d-inline-block" onsubmit="return confirm('Are you sure want to delete?')" method="POST" action="category_delete.php">
-
-	                                    	<input type="hidden" name="id" value="<?= $id ?>">
-
-	                                    	<button class="btn btn-outline-danger">
-	                                    		<i class="icofont-close"></i>
-	                                    	</button>
-
-	                                    </form>
-
+	                                    <a href="" class="btn btn-outline-danger">
+	                                        <i class="icofont-close"></i>
+	                                    </a>
 	                                </td>
 
 	                            </tr>
