@@ -43,7 +43,7 @@
         		foreach ($categories as $category) {
         			$cid = $category['id'];
         			$cname = $category['name'];
-        			$cphoto = $category['photo'];
+        			$cphoto = $category['logo'];
 
 			?>
 
