@@ -1,6 +1,17 @@
 <?php 
 	require('backendheader.php');
     require('db_connect.php');
+
+    // get id from address bar
+    $id = $_GET['cid'];
+
+    // draw out the query from db
+    $sql = "SELECT * FROM subcategories WHERE id = :value1";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(':value1', $id);
+    $stmt->execute();
+
+    $subcategory = $stmt->fetch(PDO::FETCH_ASSOC);
 ?>
 	<div class="app-title">
         <div>
@@ -17,12 +28,14 @@
             <div class="tile">
                 <div class="tile-body">
 
-                    <form action="subcategory_add.php" method="POST" enctype="multipart/form-data">
+                    <form action="subcategory_update.php" method="POST" enctype="multipart/form-data">
+
+                        <input type="hidden" name="id" value="<?= $subcategory['id'] ?>">
                         
                         <div class="form-group row">
                             <label for="name_id" class="col-sm-2 col-form-label"> Name </label>
                             <div class="col-sm-10">
-                              <input type="text" class="form-control" id="name_id" name="name">
+                              <input type="text" class="form-control" id="name_id" name="name" value="<?= $subcategory['name']; ?>">
                             </div>
                         </div>
 
@@ -46,7 +59,9 @@
                                         
                                     ?>
 
-                                        <option value="<?= $id ?>"> <?= $name; ?> </option>
+                                        <option value="<?= $id ?>" <?php if($id == $subcategory['category_id']) {echo "selected";} ?> > 
+                                            <?= $name; ?> 
+                                        </option>
 
                                     <?php } ?>
 

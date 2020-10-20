@@ -1,6 +1,6 @@
 <?php 
 	$servername = "localhost";
-	$dbname = "b18_pos";
+	$dbname = "shopules";
 	$user = "root";
 	$password ="";
 
