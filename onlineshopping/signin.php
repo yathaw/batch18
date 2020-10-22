@@ -65,7 +65,11 @@
 		$role = $user['rname'];
 
 		if ($role == "customer") {
-			header('location:index.php');
+			if (isset($_SESSION['cartURL'])) {
+				header("location:".$_SESSION['cartURL']);
+			}else{
+				header('location:index.php');
+			}
 		}
 		else{
 			header('location:item_list.php');

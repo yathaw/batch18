@@ -117,5 +117,8 @@
     <!-- Owl Carousel -->
     <script type="text/javascript" src="frontend/js/owl.carousel.js"></script>
 
+    <script type="text/javascript" src="shoppingcart.js"></script>
+
+
 </body>
 </html>

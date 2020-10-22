@@ -124,15 +124,15 @@
 					<i class="icofont-search"></i>
 				</div>
 
-				<a href="" class="text-decoration-none d-xl-inline d-lg-inline d-md-inline d-sm-none d-none shoppingcartLink"> 
+				<a href="cart.php" class="text-decoration-none d-xl-inline d-lg-inline d-md-inline d-sm-none d-none shoppingcartLink"> 
 					<i class="icofont-shopping-cart"></i> 
-					<span class="badge badge-pill badge-light badge-notify cartNotistyle cartNoti"> 1 </span>
-					<span> 4,800 Ks </span>
+					<span class="badge badge-pill badge-light badge-notify cartNotistyle cartNoti"> </span>
+					<span class="cartTotal"> </span>
 				</a>
 
-				<a href="" class="text-decoration-none d-xl-none d-lg-none d-md-none d-sm-inline-block d-inline-block shoppingcartLink"> 
+				<a href="cart.php" class="text-decoration-none d-xl-none d-lg-none d-md-none d-sm-inline-block d-inline-block shoppingcartLink"> 
 					<i class="icofont-shopping-cart"></i>
-					<span class="badge badge-pill badge-light badge-notify cartNotistyle cartNoti"> 1 </span>
+					<span class="badge badge-pill badge-light badge-notify cartNotistyle cartNoti"> </span>
 				</a>
 
 				<!-- App Download -->
@@ -219,14 +219,25 @@
           			<a class="text-decoration-none text-dark font-weight-bold" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           				<span class="mr-2"> Merchants </span>
 						<i class="icofont-rounded-down pt-2"></i>
-
           			</a>
           			<div class="dropdown-menu" aria-labelledby="navbarDropdown2">
-            			<a class="dropdown-item" href="#">Action</a>
+          				<?php 
+							$sql = "SELECT * FROM brands ORDER BY name ASC";
+						    $stmt = $conn->prepare($sql);
+						    $stmt->execute();
+
+						    $brands = $stmt->fetchAll();
+
+						    foreach($brands as $brand):
+						    $bid = $brand['id'];
+						    $bname = $brand['name'];
+						?>
+            			<a class="dropdown-item" href="brand.php?id=<?= $bid ?>">
+            				<?= $bname; ?>
+            			</a>
             			<div class="dropdown-divider"></div>
-            			<a class="dropdown-item" href="#">Another action</a>
-            			<div class="dropdown-divider"></div>
-            			<a class="dropdown-item" href="#">Something else here</a>
+            			<?php endforeach; ?>
+            			
           			</div>
         		</div>
 			</div>
@@ -341,11 +352,21 @@
 		  	</a>
 
 			<div class="collapse sidebardropdown_container_category mt-3" id="brand">
-			    <a href="" class="py-2"> Brand One </a>
-			    <a href="" class="py-2"> Brand Two </a>
-			    <a href="" class="py-2"> Brand Three </a>
-			    <a href="" class="py-2"> Brand Four </a>
-			    <a href="" class="py-2"> Brand Five </a>
+				<?php 
+					$sql = "SELECT * FROM brands ORDER BY name ASC";
+				    $stmt = $conn->prepare($sql);
+				    $stmt->execute();
+
+				    $brands = $stmt->fetchAll();
+
+				    foreach($brands as $brand):
+				    $bid = $brand['id'];
+				    $bname = $brand['name'];
+				?>
+
+			    <a href="brand.php?id=<?= $bid ?>" class="py-2"> <?= $bname; ?> </a>
+
+				<?php endforeach; ?>
 			</div>
 			<hr>
 
@@ -366,7 +387,7 @@
 			<a href="login.php"> Login | Signup</a>
 			<hr>
 
-			<a href="#"> Cart [ <span class="cartNoti"> 1 </span> ]  </a>
+			<a href="cart.php"> Cart [ <span class="cartNoti"> </span> ]  </a>
 			<hr>
 
 			<img src="frontend/image/download.png" class="img-fluid ml-2 text-center" style="width: 150px">

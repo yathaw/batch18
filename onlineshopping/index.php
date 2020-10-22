@@ -89,6 +89,7 @@
 		            			$di_price = $discount_item['price'];
 		            			$di_discount = $discount_item['discount'];
 		            			$di_photo = $discount_item['photo'];
+		            			$di_codeno =  $discount_item['codeno'];
 		            	?>
 
 		                <div class="item">
@@ -110,7 +111,11 @@
 									</ul>
 								</div>
 
-								<a href="#" class="addtocartBtn text-decoration-none">Add to Cart</a>
+								<a href="javascript:void(0)" class="addtocartBtn text-decoration-none" data-id ="<?= $di_id ?>" data-name="<?= $di_name ?>"
+								data-codeno="<?= $di_codeno ?>"
+								data-photo="<?= $di_photo ?>"
+								data-price="<?= $di_price ?>"
+								data-discount="<?= $di_discount ?>">Add to Cart</a>
 
 		                    </div>
 		                </div>
@@ -149,6 +154,7 @@
 		            			$sa_price = $sale_item['price'];
 		            			$sa_discount = $sale_item['discount'];
 		            			$sa_photo = $sale_item['photo'];
+		            			$sa_codeno = $sale_item['codeno'];
 		            	?>
 
 		                <div class="item">
@@ -174,7 +180,11 @@
 									</ul>
 								</div>
 
-								<a href="#" class="addtocartBtn text-decoration-none">Add to Cart</a>
+								<a href="javascript:void(0)" class="addtocartBtn text-decoration-none" data-id ="<?= $sa_id ?>" data-name="<?= $sa_name ?>"
+								data-codeno="<?= $sa_codeno ?>"
+								data-photo="<?= $sa_photo ?>"
+								data-price="<?= $sa_price ?>"
+								data-discount="<?= $sa_discount ?>">Add to Cart</a>
 
 		                    </div>
 		                </div>
@@ -215,6 +225,7 @@
 		            			$ra_price = $random_item['price'];
 		            			$ra_discount = $random_item['discount'];
 		            			$ra_photo = $random_item['photo'];
+		            			$ra_codeno = $random_item['codeno'];
 		            	?>
 
 		                <div class="item">
@@ -240,7 +251,11 @@
 									</ul>
 								</div>
 
-								<a href="#" class="addtocartBtn text-decoration-none">Add to Cart</a>
+								<a href="#" class="addtocartBtn text-decoration-none" data-id ="<?= $ra_id ?>" data-name="<?= $ra_name ?>"
+								data-codeno="<?= $ra_codeno ?>"
+								data-photo="<?= $ra_photo ?>"
+								data-price="<?= $ra_price ?>"
+								data-discount="<?= $ra_discount ?>">Add to Cart</a>
 
 		                    </div>
 		                </div>
@@ -264,59 +279,26 @@
 
 	    <!-- Brand Store Item -->
 	    <section class="customer-logos slider mt-5">
+	    	<?php 
+				$sql = "SELECT * FROM brands ORDER BY name ASC";
+			    $stmt = $conn->prepare($sql);
+			    $stmt->execute();
+
+			    $brands = $stmt->fetchAll();
+
+			    foreach($brands as $brand):
+			    $bid = $brand['id'];
+			    $bname = $brand['name'];
+			    $blogo = $brand['logo'];
+			?>
 	      	<div class="slide">
-	      		<a href="">
-		      		<img src="image/brand/loacker_logo.jpg">
+	      		<a href="brand.php?id=<?= $bid ?>">
+		      		<img src="<?= $blogo ?>">
 		      	</a>
 	      	</div>
+
+	      <?php endforeach; ?>
 	      	
-	      	<div class="slide">
-	      		<a href="">
-	      			<img src="image/brand/lockandlock_logo.png">
-	      		</a>
-	      	</div>
-	      	
-	      	<div class="slide">
-	      		<a href="">
-	      			<img src="image/brand/apple_logo.png">
-	      		</a>
-	      	</div>
-	      	
-	      	<div class="slide">
-	      		<a href="">
-	      			<img src="image/brand/giordano_logo.png">
-	      		</a>
-	      	</div>
-	      	
-	      	<div class="slide">
-	      		<a href="">
-	      			<img src="image/brand/saisai_logo.png">
-	      		</a>
-	      	</div>
-	      	
-	      	<div class="slide">
-	      		<a href="">
-	      			<img src="image/brand/brands_logo.png">
-	      		</a>	
-	      	</div>
-	      	
-	      	<div class="slide">
-	      		<a href="">
-	      			<img src="image/brand/acer_logo.png">
-	      		</a>
-	      	</div>
-	      	
-	      	<div class="slide">
-	      		<a href="">
-	      			<img src="image/brand/bella_logo.png">
-	      		</a>
-	      	</div>
-	      	
-	      	<div class="slide">
-	      		<a href="">
-	      			<img src="image/brand/ariel_logo.png">
-	      		</a>
-	      	</div>
 	   	</section>
 
 	    <div class="whitespace d-xl-block d-lg-block d-md-none d-sm-none d-none"></div>
