@@ -35,7 +35,7 @@
 						<label for="categoryName" class="col-sm-2 col-form-label"> Photo  </label>
 				    	
 				    	<div class="col-sm-10">
-				      		<input type="file" name="image">
+				      		<input type="file" name="images[]" multiple="">
 				    	</div>
 					</div>
 

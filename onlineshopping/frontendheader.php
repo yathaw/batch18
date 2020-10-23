@@ -1,6 +1,7 @@
 <?php 
 	require('db_connect.php');
 	session_start();
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -56,11 +57,17 @@
 				<span class="d-xl-none d-lg-none d-md-inline d-sm-inline d-inline  p-1 navslidemenu">
 					<i class="icofont-navigation-menu"></i>
 				</span>
-				<img src="logo/logo_big.jpg" class="img-fluid d-xl-inline d-lg-inline d-md-none d-sm-none d-none">
+				<a href="index.php">
+					<img src="logo/logo_big.jpg" class="img-fluid d-xl-inline d-lg-inline d-md-none d-sm-none d-none">
+				</a>
 
-				<img src="logo/logo_med.jpg" class="img-fluid d-xl-none d-lg-none d-md-inline d-sm-none d-none" style="width: 100px">
+				<a href="index.php">
+					<img src="logo/logo_med.jpg" class="img-fluid d-xl-none d-lg-none d-md-inline d-sm-none d-none" style="width: 100px">
+				</a>
 
-				<img src="logo/logo.jpg" class="img-fluid d-xl-none d-lg-none d-md-none d-sm-inline d-inline pl-2" style="width: 30px">
+				<a href="index.php">
+					<img src="logo/logo.jpg" class="img-fluid d-xl-none d-lg-none d-md-none d-sm-inline d-inline pl-2" style="width: 30px">
+				</a>
 			</div>
 			
 			<!-- Search Bar -->
@@ -89,14 +96,19 @@
 						</a>
 
 						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-						    <a class="dropdown-item" href="">
+						    <a class="dropdown-item" href="profile.php">
 						    	Profile
 						    </a>
 						  	<div class="dropdown-divider"></div>
 
 
-						    <a class="dropdown-item" href="#">
+						    <a class="dropdown-item" href="order_history.php">
 						    	Order History
+						    </a>
+						  	<div class="dropdown-divider"></div>
+
+						  	<a class="dropdown-item" href="secret.php">
+						    	Change Password
 						    </a>
 						  	<div class="dropdown-divider"></div>
 
@@ -195,7 +207,7 @@
 				            			$sname = $subcategory['name'];
 				            	?>
 				              	
-				              		<li><a class="dropdown-item" href="#">
+				              		<li><a class="dropdown-item" href="subcategory.php?id=<?= $sid ?>">
 				              			<?= $sname ?>
 				              		</a></li>
 
@@ -212,7 +224,7 @@
 			</div>
 
 			<div class="col-3">
-				<a href="" class="text-decoration-none text-dark font-weight-bold"> Promotion </a>
+				<a href="promotion.php" class="text-decoration-none text-dark font-weight-bold"> Promotion </a>
 			</div>
 			<div class="col-3">
 				<div class="hov-dropdown d-inline-block">
@@ -332,7 +344,7 @@
 
 				?>
 			    	
-			    	<a href="" class="py-2"> <?= $sname; ?> </a>
+			    	<a href="subcategory.php?id=<?= $sid ?>" class="py-2"> <?= $sname; ?> </a>
 
 			    <?php } ?>
 
@@ -342,7 +354,7 @@
 
 			<?php } ?>
 
-		  	<a href="#"> Poromotion </a>
+		  	<a href="promotion.php"> Poromotion </a>
 			<hr>
 
 		  	<a data-toggle="collapse" href="#brand" role="button" aria-expanded="false" aria-controls="brand">
@@ -384,8 +396,30 @@
 			</div>
 			<hr>
 
-			<a href="login.php"> Login | Signup</a>
+			<?php 
+				if (isset($_SESSION['login_user'])) {
+			?>
+
+			<a data-toggle="collapse" href="#account" role="button" aria-expanded="false" aria-controls="account">
+		   		<?= $_SESSION['login_user']['name'] ?>
+		   		<i class="icofont-rounded-down float-right mr-3"></i>
+		  	</a>
+
+			<div class="collapse sidebardropdown_container_category mt-3" id="account">
+			    <a href="profile.php" class="py-2"> Profile </a>
+			    <a href="order_history" class="py-2"> Order History </a>
+			    <a href="secret.php" class="py-2"> Change Password </a>
+			    <a href="signout.php" class="py-2"> Logout </a>
+			</div>
 			<hr>
+
+			<?php 
+				} else {
+			?>
+				<a href="login.php"> Login | Signup</a>
+				<hr>
+
+			<?php } ?>
 
 			<a href="cart.php"> Cart [ <span class="cartNoti"> </span> ]  </a>
 			<hr>

@@ -51,9 +51,12 @@
 	        						$price = $item['price'];
 	        						$codeno = $item['codeno'];
 	        						$sname = $item['sname'];
-        							$photo = $item['photo'];
+        							$photos = $item['photo'];
         							$price = $item['price'];
         							$discount = $item['discount'];
+
+									$photos_arr = explode("|",$photos);
+									$photo = $photos_arr[0];
 
 								?>
 

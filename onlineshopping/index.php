@@ -45,6 +45,7 @@
         			$cname = $category['name'];
         			$cphoto = $category['logo'];
 
+
 			?>
 
 			<div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12 ">
@@ -88,8 +89,11 @@
 		            			$di_name = $discount_item['name'];
 		            			$di_price = $discount_item['price'];
 		            			$di_discount = $discount_item['discount'];
-		            			$di_photo = $discount_item['photo'];
+		            			$di_photos = $discount_item['photo'];
 		            			$di_codeno =  $discount_item['codeno'];
+
+		            			$diphotos_arr = explode("|",$di_photos);
+								$di_photo = $diphotos_arr[0];
 		            	?>
 
 		                <div class="item">
@@ -153,8 +157,11 @@
 		            			$sa_name = $sale_item['name'];
 		            			$sa_price = $sale_item['price'];
 		            			$sa_discount = $sale_item['discount'];
-		            			$sa_photo = $sale_item['photo'];
+		            			$sa_photos = $sale_item['photo'];
 		            			$sa_codeno = $sale_item['codeno'];
+
+		            			$saphotos_arr = explode("|",$sa_photos);
+								$sa_photo = $saphotos_arr[0];
 		            	?>
 
 		                <div class="item">
@@ -224,8 +231,11 @@
 		            			$ra_name = $random_item['name'];
 		            			$ra_price = $random_item['price'];
 		            			$ra_discount = $random_item['discount'];
-		            			$ra_photo = $random_item['photo'];
+		            			$ra_photos = $random_item['photo'];
 		            			$ra_codeno = $random_item['codeno'];
+
+		            			$raphotos_arr = explode("|",$ra_photos);
+								$ra_photo = $raphotos_arr[0];
 		            	?>
 
 		                <div class="item">

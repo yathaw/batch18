@@ -1,3 +1,17 @@
+<?php 
+    session_start();
+
+    if(!isset($_SESSION['login_user'])){
+        header('location:login.php');
+    }
+
+    if(isset($_SESSION['login_user'])){
+        if ($_SESSION['login_user']['rname'] == "customer") {
+            header('location:index.php');
+        }
+    }
+   
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -67,7 +81,7 @@
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="page-login.html">
+                        <a class="dropdown-item" href="signout.php">
                             <i class="icofont-logout"></i>
                             Logout
                         </a>
@@ -84,8 +98,8 @@
         <aside class="app-sidebar">
             <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/48.jpg" alt="User Image">
                 <div>
-                  <p class="app-sidebar__user-name">John Doe</p>
-                  <p class="app-sidebar__user-designation">Frontend Developer</p>
+                  <p class="app-sidebar__user-name"><?= $_SESSION['login_user']['name']; ?> </p>
+                  <p class="app-sidebar__user-designation"> <?= $_SESSION['login_user']['rname']; ?> </p>
                 </div>
             </div>
             
@@ -101,7 +115,7 @@
                 </li>
 
                 <li>
-                    <a class="app-menu__item" href="dashboard.html">
+                    <a class="app-menu__item" href="order_list.php">
                         <i class="app-menu__icon icofont-prestashop"></i>
                         <span class="app-menu__label">
                             Order
@@ -110,7 +124,7 @@
                 </li>
 
                 <li>
-                    <a class="app-menu__item" href="dashboard.html">
+                    <a class="app-menu__item" href="customer_list.php">
                         <i class="app-menu__icon icofont-users-social"></i>
                         <span class="app-menu__label">
                             Customer

@@ -27,6 +27,19 @@
 
 				<?php } unset($_SESSION['reg_success']); ?>
 
+				<?php if(isset($_SESSION['chpassword_success'])){ ?>
+				<div class="alert alert-success alert-dismissible fade show" role="alert">
+				  	<h2>  🎉 Success </h2>
+				  	<hr>
+				  	<p> <?= $_SESSION['chpassword_success']; ?> </p>
+
+				  	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				    	<span aria-hidden="true">&times;</span>
+				  	</button>
+				</div>
+
+				<?php } unset($_SESSION['reg_success']); ?>
+
 				<?php if(isset($_SESSION['login_fail'])){ ?>
 				<div class="alert alert-danger alert-dismissible fade show" role="alert">
 				  	<h2>  🚨 Oops! </h2>

@@ -19,7 +19,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                               <label class="small mb-1" for="inputName"> Name</label>
-                              <input class="form-control py-4" id="inputName" type="text" placeholder="Enter Name" name="name" />
+                              <input class="form-control py-4" id="inputName" type="text" placeholder="Enter Name" name="name" required="" />
                             </div>
                         </div>
                         <div class="col-md-6">

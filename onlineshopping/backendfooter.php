@@ -10,7 +10,10 @@
         <!-- Data table plugin-->
         <script type="text/javascript" src="backend/js/plugins/jquery.dataTables.min.js"></script>
         <script type="text/javascript" src="backend/js/plugins/dataTables.bootstrap.min.js"></script>
-        <script type="text/javascript">$('#sampleTable').DataTable();</script>
+        <script type="text/javascript">
+          $('#sampleTable').DataTable();
+          $('table.display').DataTable();
+      </script>
         <!-- Google analytics script-->
         <script type="text/javascript">
           if(document.location.hostname == 'pratikborsadiya.in') {
