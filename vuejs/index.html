@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vue JS</title>
+  <script type="text/javascript" src="vue.min.js"></script>
+</head>
+<body>
+  <div id="app">
+    <!-- normal string -->
+    <p>{{name}}</p>
+
+    <!-- Events -->
+    <button v-on:click="reverseMessage">Reverse</button>
+
+    <!-- binding attributes -->
+    <img v-bind:src="photo" alt="MyImg" width="200">
+
+    <!-- Conditionals -->
+    <p v-if="seen">Now you see me</p>
+    <p v-else>Value of Seen == false</p>
+
+    <p v-if="mark>40">Passed</p>
+    <p v-else>Failed</p>
+
+    <!-- Looping -->
+    <ul>
+      <li v-for="c in color">{{c}}</li>
+    </ul>
+
+    <!-- <ul>
+      <li v-for="todo in todos">{{todo.text}}</li>
+    </ul> -->
+
+    <!-- component -->
+    <div>
+      <todo-item v-for="todo in todos" v-bind:a="todo"></todo-item>
+    </div>    
+
+    <!-- Form Input -->
+    <input type="text" name="email" v-model="email">
+    {{email}}
+
+    <!-- Computed -->
+    <p>Old Student</p>
+    <ul>
+      <li v-for="student in oldStudent">{{student.name}} - {{student.age}}</li>
+    </ul>
+
+    <p>Passed Student</p>
+    <ul>
+      <li v-for="student in passedStudent">{{student.name}} - {{student.age}}</li>
+    </ul>
+  </div>
+
+  <script type="text/javascript">
+    Vue.component('todo-item', {
+      props: ['a'],
+      template: '<div><p>This is P Tag</p> Hello <span v-html="a.text"></span></div>'
+    })
+
+    var app = new Vue({
+      el: '#app',
+      data: {
+        photo: '../photos/vue.png',
+        name: 'Thet Paing Htut',
+        seen: true,
+        mark: 60,
+        color: ['red', 'green', 'white'],
+        todos: [
+          { text: '<strong>Learn JavaScript</strong>' },
+          { text: '<strong>Learn Vue</strong>' },
+          { text: '<strong>Build something awesome</strong>' }
+        ],
+        email:'',
+        students: [
+          {name: 'Su Su', age: 12, exam: true},
+          {name: 'Mg Mg', age: 18, exam: false},
+          {name: 'Mya Mya', age: 25, exam: true},
+        ]
+      },
+      methods:{
+        reverseMessage(){
+          this.name = this.name.split('').reverse().join('')
+        }
+      },
+      computed:{
+        passedStudent(){
+          return this.students.filter(student=>student.exam==true)
+        },
+        oldStudent(){
+          return this.students.filter(student=>student.age>18)
+        }
+      }
+    })
+
+    // var color = ['red', 'green', 'white'];
+    // for(let c of color){
+    //   console.log(c)
+    // }
+  </script>
+</body>
+</html>

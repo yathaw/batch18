@@ -3,25 +3,35 @@
 <head>
   <title>Fetch API</title>
   <script type="text/javascript">
-    const arr = [];
-    if (window.fetch) {
-      // console.log('support')
-      fetch('https://api.imgflip.com/caption_image')
-        .then(res=>{
-          return res.json()
-        })
-        .then(jsonData =>{
-          // console.table(jsonData.data)
-          arr.push(jsonData.data);
-        })
-    }else{
-      console.error('not support')
+    // var arr="";
+    // if (window.fetch) {
+    //   // console.log('support')
+    //   let mydata = await fetch('https://api.imgflip.com/get_memes')
+    //     .then(res=>{
+    //       return res.json()
+    //     })
+    //     .then(jsonData =>{
+    //       console.table(jsonData.data.memes)
+    //       arr = jsonData.data.memes;
+    //     })
+    // }else{
+    //   console.error('not support')
+    // }
+    // console.log(arr);
+
+    async function fetchMemesJSON() {
+      const response = await fetch('https://api.imgflip.com/get_memes');
+      const memes = await response.json();
+      return memes;
     }
 
-    console.log(arr);
+    fetchMemesJSON().then(memes => {
+      console.log(memes.data); // fetched memes
+    });
+    
   </script>
 </head>
 <body>
-
+  
 </body>
 </html>
