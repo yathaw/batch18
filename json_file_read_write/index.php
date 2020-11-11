@@ -12,6 +12,82 @@
 	    	$('tbody').on('click','.edit',function(){
 	    		$('#editStudentdiv').show();
 	    		$('#addStudentdiv').hide();
+
+	    		var id = $(this).data('id');
+
+	    		$.get('studentlist.json',function(response){
+
+	    			var studentObjArray = JSON.parse(response);
+
+	    			var  name = studentObjArray[id].name;
+	    			var  email = studentObjArray[id].email;
+	    			var  gender = studentObjArray[id].gender;
+	    			var  address = studentObjArray[id].address;
+	    			var  profile = studentObjArray[id].profile;
+
+	    			$('#edit_name').val(name);
+	    			$('#edit_email').val(email);
+	    			$('#edit_address').val(address);
+
+	    			if (gender == "Male") {
+	    				$('#edit_male').attr('checked', 'checked');
+	    			}
+	    			else{
+	    				$('#edit_female').attr('checked', 'checked');
+
+	    			}
+
+	    			$('#showOldPhoto').attr('src',profile);
+
+	    			$('#edit_id').val(id);
+
+	    			$('#edit_oldprofile').val(profile);
+
+	    		});
+	    	});
+
+	    	$('tbody').on('click','.detail',function(){
+
+	    		$('#detailModal').modal('show');
+
+	    		var id = $(this).data('id');
+
+	    		$.get('studentlist.json',function(response){
+
+	    			var studentObjArray = JSON.parse(response);
+
+	    			var  name = studentObjArray[id].name;
+	    			var  email = studentObjArray[id].email;
+	    			var  gender = studentObjArray[id].gender;
+	    			var  address = studentObjArray[id].address;
+	    			var  profile = studentObjArray[id].profile;
+
+	    			$('#detail_name').text(name);
+	    			$('#detail_gender').text(gender);
+	    			$('#detail_email').text(email);
+	    			$('#detail_address').text(address);
+
+	    			$('#detail_profile').attr('src',profile);
+
+
+	    		});
+	    	});
+
+	    	$('tbody').on('click','.delete',function(){
+
+	    		var id = $(this).data('id');
+
+	    		var ans = confirm('Are you sure want to delete?');
+
+	    		if (ans) {
+	    			$.post(
+	    				'deletestudent.php', {sid:id},
+	    				function(data){
+	    					getStudentlist();
+	    				}
+	    			)
+	    		}
+
 	    	});
 
 	    	function getStudentlist(){
@@ -39,11 +115,11 @@
 	    							<td> ${gender} </td>
 	    							<td> ${email} </td>
 	    							<td>
-	    								<button class="detail btn btn-success">Detail</button>
+	    								<button class="detail btn btn-success" data-id="${i}">Detail</button>
 
-			                        	<button class="edit btn btn-warning">Edit</button>
+			                        	<button class="edit btn btn-warning" data-id="${i}">Edit</button>
 
-			                        	<button class="delete btn btn-danger">Delete</button></td>
+			                        	<button class="delete btn btn-danger" data-id="${i}">Delete</button></td>
 	    							</td>
 	    						</tr>`;
 	    			});
@@ -174,8 +250,10 @@
 		<div class="row mt-5">
 			<div class="col align-self-center">
 				<form action="updatestudent.php" method="POST" enctype="multipart/form-data">
+
 					<input type="hidden" name="edit_id" id="edit_id">
-					<input type="hidden" name="edit_oldprofile" id="edit_oldphoto">
+					<input type="hidden" name="edit_oldprofile" id="edit_oldprofile">
+
 					<div class="form-group row">
 						<label for="profile" class="col-sm-2 col-form-label"> Profile </label>
 					    <div class="col-sm-10">
@@ -275,6 +353,44 @@
 		</thead>
 		<tbody></tbody>
 	</table>
+
+
+	<div class="modal fade" id="detailModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+		    <div class="modal-content">
+		      	<div class="modal-header">
+		        	<h5 class="modal-title" id="exampleModalLabel"> Student Information </h5>
+		        	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          		<span aria-hidden="true">&times;</span>
+		        	</button>
+		      	</div>
+		      
+		      	<div class="modal-body">
+		        	<div class="container">
+		        		<div class="row">
+		        			<div class="col-4">
+		        				<img src="" id="detail_profile" class="img-fluid">
+		        			</div>
+		        			<div class="col-8">
+		        				<h1 id="detail_name"></h1>
+		        				<p id="detail_gender"></p>
+		        				<p id="detail_email"></p>
+		        				<p id="detail_address"></p>
+		        			</div>
+		        		</div>
+		        	</div>
+		      	</div>
+		    </div>
+		</div>
+	</div>
+
+
+
+
+
+
+
+
 
 
 <?php 

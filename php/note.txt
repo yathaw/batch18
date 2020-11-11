@@ -167,7 +167,7 @@ implode
 
 explode
 --------
-	explode(separator, array)
+	explode(separator, string)
 
 	string to array
 
